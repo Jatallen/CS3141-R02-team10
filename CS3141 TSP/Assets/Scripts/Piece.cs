@@ -17,6 +17,7 @@ public abstract class Piece : MonoBehaviour
     void Start()
     {
         thisCollider = GetComponent<Collider2D>();
+        position = new Vector2(transform.position.x, transform.position.y);
 
         hasMoved = false;
     }
@@ -46,7 +47,7 @@ public abstract class Piece : MonoBehaviour
                         {
                             transform.position = move;
                             GameController.playerSelect = null;
-                            GameController.turn = GameController.turn == "White" ? "Black" : "White";
+                            GameController.turn = OtherTeam(GameController.turn);
                             List<Collider2D> result = new List<Collider2D>();
                             if (thisCollider.OverlapCollider(new ContactFilter2D(), result) >= 1)   //take pieces - WIP
                             {
@@ -55,11 +56,11 @@ public abstract class Piece : MonoBehaviour
                                         col.GetComponent<Piece>().TakePiece(gameObject);
                                 Debug.Log("Piece Taken");
                             }
-                            Debug.Log("Successful Move: " + position + move);
+                            Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             break;
                         }
-                        Debug.Log("Failed Move: " + position + move);
+                        Debug.Log("Failed Move: " + mousePos + move);
                     }
                     if (ListMoves().Count == 0)
                         Debug.Log("No Moves");
@@ -84,9 +85,9 @@ public abstract class Piece : MonoBehaviour
     }
 
     //return whether or not the point collides with a piece of the given team
-    public bool PointCollidesWithTeam(Vector2 p)
+    public bool PointCollidesWithTeam(Vector2 p, string team)
     {
-        foreach (GameObject piece in GameObject.FindGameObjectsWithTag(gameObject.tag))
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag(team))
             if (piece.GetComponent<Collider2D>().OverlapPoint(p) && piece != gameObject)
                 return true;
         return false;
@@ -99,5 +100,23 @@ public abstract class Piece : MonoBehaviour
             GameController.board != collision.gameObject &&
             GameController.turn != gameObject.tag)*/
             Destroy(gameObject);
-    }    
+    } 
+    
+    public GameObject PieceAt(Vector2 pos)
+    {
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag("White"))
+            if (piece.GetComponent<Collider2D>().OverlapPoint(pos) && piece != gameObject)
+                return piece;
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
+            if (piece.GetComponent<Collider2D>().OverlapPoint(pos) && piece != gameObject)
+                return piece;
+        return null;
+    }
+
+    public string OtherTeam(string team)
+    {
+        if (team == "White")
+            return "Black";
+        return "White";
+    }
 }

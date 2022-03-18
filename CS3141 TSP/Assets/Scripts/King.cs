@@ -33,11 +33,11 @@ public class King : Piece
         moves.Add(new Vector2(tile * -1, tile * -1));   //bottom left
         moves.Add(new Vector2(0, tile * -1));   //bottom
 
-        for (int i = 0; i < moves.Count; i++)
+        for (int i = moves.Count - 1; i >= 0; i--)
         {
             moves[i] += position;
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i]))  //remove move if it's an illegal space
+                PointCollidesWithTeam(moves[i], gameObject.tag))  //remove move if it's an illegal space
                 moves.Remove(moves[i]);
         }
 

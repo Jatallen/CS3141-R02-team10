@@ -9,16 +9,40 @@ public class Rook : Piece
         List<Vector2> moves = new List<Vector2>();
         float tile = GameController.tile;
         //Rook moves
-        moves.Add(new Vector2(tile, 0));    //right
-        moves.Add(new Vector2(0, tile));    //top
-        moves.Add(new Vector2(tile * -1, 0));    //left
-        moves.Add(new Vector2(0, tile * -1));   //bottom
-
-        for (int i = 0; i < moves.Count; i++)
+        int j = 1;
+        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(tile * j, 0) + position, gameObject.tag))
+        {
+            moves.Add(new Vector2(tile * j, 0));    //right
+            if (PointCollidesWithTeam(new Vector2(tile * j, 0) + position, OtherTeam(gameObject.tag)))
+                break;
+        }
+        j = 1;
+        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile) + position, gameObject.tag))
+        {
+            moves.Add(new Vector2(0, tile));    //top
+            if (PointCollidesWithTeam(new Vector2(0, tile) + position, OtherTeam(gameObject.tag)))
+                break;
+        }
+        j = 1;
+        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(tile * -1, 0) + position, gameObject.tag))
+        {
+            moves.Add(new Vector2(tile * -1, 0));    //left
+            if (PointCollidesWithTeam(new Vector2(tile * -1, 0) + position, OtherTeam(gameObject.tag)))
+                break;
+        }
+        j = 1;
+        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile * -1) + position, gameObject.tag))
+        {
+            moves.Add(new Vector2(0, tile * -1));   //bottom
+            if (PointCollidesWithTeam(new Vector2(0, tile * -1) + position, OtherTeam(gameObject.tag)))
+                break;
+        }
+        
+        for (int i = moves.Count - 1; i >= 0; i--)
         {
             moves[i] += position;
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i]))  //remove move if it's an illegal space
+                PointCollidesWithTeam(moves[i], gameObject.tag))  //remove move if it's an illegal space
                 moves.Remove(moves[i]);
         }
 

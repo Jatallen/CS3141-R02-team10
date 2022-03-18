@@ -14,6 +14,14 @@ public class Pawn : Piece
         else
             moves.Add(new Vector2(0, tile * -1));   //bottom
 
+        if (!hasMoved)
+        {
+            if (gameObject.tag == "White")
+                moves.Add(new Vector2(0, tile * 2));    //top
+            else
+                moves.Add(new Vector2(0, tile * -2));   //bottom
+        }
+
         for (int i = 0; i < moves.Count; i++)
         {
             moves[i] += position;

@@ -8,6 +8,8 @@ public abstract class Piece : MonoBehaviour
     public Collider2D thisCollider;
     [System.NonSerialized]
     public Vector2 position;
+    [System.NonSerialized]
+    public bool hasMoved;
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
 
@@ -15,6 +17,8 @@ public abstract class Piece : MonoBehaviour
     void Start()
     {
         thisCollider = GetComponent<Collider2D>();
+
+        hasMoved = false;
     }
 
     // Update is called once per frame
@@ -32,7 +36,7 @@ public abstract class Piece : MonoBehaviour
                 {
                     transform.position = GameController.selectPos;
                     GameController.playerSelect = null;
-                    //Debug.Log("Put Down: " + position + GameController.selectPos);
+                    Debug.Log("Put Down: " + position + GameController.selectPos);
                 }
                 else
                 {
@@ -51,13 +55,14 @@ public abstract class Piece : MonoBehaviour
                                         col.GetComponent<Piece>().TakePiece(gameObject);
                                 Debug.Log("Piece Taken");
                             }
-                            //Debug.Log("Successful Move: " + position + move);
+                            Debug.Log("Successful Move: " + position + move);
+                            hasMoved = true;
                             break;
                         }
-                        //Debug.Log("Failed Move: " + position + move);
+                        Debug.Log("Failed Move: " + position + move);
                     }
-                    //if (ListMoves().Count == 0)
-                        //Debug.Log("No Moves");
+                    if (ListMoves().Count == 0)
+                        Debug.Log("No Moves");
                 }
             }
         }
@@ -65,12 +70,12 @@ public abstract class Piece : MonoBehaviour
         {
             position = new Vector2(transform.position.x, transform.position.y);
 
-            if (Input.GetMouseButtonDown(0) && thisCollider.OverlapPoint(mousePos) && GameController.turn == gameObject.tag) //select this piece
+            if (Input.GetMouseButtonDown(0) && thisCollider.OverlapPoint(mousePos) && GameController.turn == gameObject.tag && GameController.playerSelect == null) //select this piece
             {
                 GameController.playerSelect = gameObject;
                 GameController.selectPos = position;
 
-                //Debug.Log("Pick Up: " + GameController.selectPos);
+                Debug.Log("Pick Up: " + GameController.selectPos);
             }
         }
 

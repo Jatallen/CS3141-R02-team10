@@ -13,6 +13,7 @@ public abstract class Piece : MonoBehaviour
 
     //highlight
     public GameObject highlight;
+    public GameObject moveHighlight;
     public bool isHighlighted = false;
 
     public GameObject Queen;
@@ -37,11 +38,23 @@ public abstract class Piece : MonoBehaviour
 
         if (GameController.playerSelect == gameObject)  //if the piece is selected
         {
-            if(!isHighlighted){
-                var instance = Instantiate(highlight, transform.position, Quaternion.identity);
-                isHighlighted = true;
-                Destroy(instance, 2);
+                if(!isHighlighted){
+                    var instance = Instantiate(highlight, transform.position, Quaternion.identity);
+                    Destroy(instance, 1);
+
+                    foreach (Vector2 move in ListMoves()){
+
+                    Debug.Log(" moves are " + move);
+                    
+                    var moveInstacne = Instantiate(moveHighlight, move, Quaternion.identity);
+                    Destroy(moveInstacne, 1);
+
+                    isHighlighted = true;    
+                }
+
             }
+
+            
 
             transform.position = mousePos;
             

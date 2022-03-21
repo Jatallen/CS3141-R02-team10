@@ -11,6 +11,12 @@ public abstract class Piece : MonoBehaviour
     [System.NonSerialized]
     public bool hasMoved;
 
+    //highlight
+    public GameObject highlight;
+    public bool isHighlighted = false;
+
+    
+
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
 
     // Start is called before the first frame update
@@ -25,12 +31,18 @@ public abstract class Piece : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         if (GameController.playerSelect == gameObject)  //if the piece is selected
         {
+            if(!isHighlighted){
+                var instance = Instantiate(highlight, transform.position, Quaternion.identity);
+                isHighlighted = true;
+                Destroy(instance, 2);
+            }
+
             transform.position = mousePos;
+            
             if (Input.GetMouseButtonDown(0))    //left click
             {
                 if (thisCollider.OverlapPoint(GameController.selectPos))    //if clicked on original spot
@@ -43,6 +55,7 @@ public abstract class Piece : MonoBehaviour
                 {
                     foreach (Vector2 move in ListMoves())   //check if the clicked spot is a possible move
                     {
+
                         if (thisCollider.OverlapPoint(move))
                         {
                             transform.position = move;
@@ -58,6 +71,7 @@ public abstract class Piece : MonoBehaviour
                             }
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
+                            isHighlighted = false;
                             break;
                         }
                         Debug.Log("Failed Move: " + mousePos + move);
@@ -99,7 +113,7 @@ public abstract class Piece : MonoBehaviour
         /*if (GameController.playerSelect != collision.gameObject &&
             GameController.board != collision.gameObject &&
             GameController.turn != gameObject.tag)*/
-            Destroy(gameObject);
+            Destroy(gameObject); //data loss?
     } 
     
     public GameObject PieceAt(Vector2 pos)

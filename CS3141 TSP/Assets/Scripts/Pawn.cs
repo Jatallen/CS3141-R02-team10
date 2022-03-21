@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pawn : Piece
 {
+
     public override List<Vector2> ListMoves()    //returns an array of the locations the piece can move
     {
         List<Vector2> moves = new List<Vector2>();
@@ -29,6 +30,7 @@ public class Pawn : Piece
                 PointCollidesWithTeam(moves[i], gameObject.tag))  //remove move if it's an illegal space
                 moves.Remove(moves[i]);
         }
+
 
         return moves;
     }

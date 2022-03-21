@@ -15,6 +15,8 @@ public abstract class Piece : MonoBehaviour
     public GameObject highlight;
     public bool isHighlighted = false;
 
+    public GameObject Queen;
+
     
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
@@ -69,9 +71,21 @@ public abstract class Piece : MonoBehaviour
                                         col.GetComponent<Piece>().TakePiece(gameObject);
                                 Debug.Log("Piece Taken");
                             }
+
+                            // If pawn reaches back rank, destroy pawn and create a queen in its place
+                            if ((GetComponent<Pawn>() != null) && Mathf.Abs(transform.position.y) == 3.5){
+                                Destroy(gameObject);
+                                if (gameObject.tag == "White"){
+                                    Instantiate(Queen, transform.position, transform.rotation);
+                                } else {
+                                    Instantiate(Queen, transform.position, transform.rotation);
+                                }
+                            }
+
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             isHighlighted = false;
+
                             break;
                         }
                         Debug.Log("Failed Move: " + mousePos + move);

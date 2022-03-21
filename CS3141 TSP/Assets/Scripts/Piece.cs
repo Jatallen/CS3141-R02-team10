@@ -16,8 +16,12 @@ public abstract class Piece : MonoBehaviour
     public GameObject moveHighlight;
     public bool isHighlighted = false;
 
+<<<<<<< Updated upstream
     public GameObject Queen;
 
+=======
+    private SpriteRenderer spriteRenderer ;
+>>>>>>> Stashed changes
     
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
@@ -26,6 +30,7 @@ public abstract class Piece : MonoBehaviour
     void Start()
     {
         thisCollider = GetComponent<Collider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         position = new Vector2(transform.position.x, transform.position.y);
 
         hasMoved = false;
@@ -116,6 +121,8 @@ public abstract class Piece : MonoBehaviour
             {
                 GameController.playerSelect = gameObject;
                 GameController.selectPos = position;
+                spriteRenderer.sortingOrder = 1; //Makes sprite go to front
+                
 
                 //Debug.Log("Pick Up: " + GameController.selectPos);
             }

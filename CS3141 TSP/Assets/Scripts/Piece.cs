@@ -49,7 +49,7 @@ public abstract class Piece : MonoBehaviour
                 {
                     transform.position = GameController.selectPos;
                     GameController.playerSelect = null;
-                    Debug.Log("Put Down: " + position + GameController.selectPos);
+                    //Debug.Log("Put Down: " + position + GameController.selectPos);
                 }
                 else
                 {
@@ -90,7 +90,7 @@ public abstract class Piece : MonoBehaviour
                 GameController.playerSelect = gameObject;
                 GameController.selectPos = position;
 
-                Debug.Log("Pick Up: " + GameController.selectPos);
+                //Debug.Log("Pick Up: " + GameController.selectPos);
             }
         }
 

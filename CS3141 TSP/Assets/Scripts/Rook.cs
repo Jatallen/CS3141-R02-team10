@@ -15,27 +15,35 @@ public class Rook : Piece
             moves.Add(new Vector2(tile * j, 0));    //right
             if (PointCollidesWithTeam(new Vector2(tile * j, 0) + position, OtherTeam(gameObject.tag)))
                 break;
+            j++;
+            Debug.Log("Right");
         }
         j = 1;
-        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile) + position, gameObject.tag))
+        while (position.y + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile) + position, gameObject.tag))
         {
-            moves.Add(new Vector2(0, tile));    //top
-            if (PointCollidesWithTeam(new Vector2(0, tile) + position, OtherTeam(gameObject.tag)))
+            moves.Add(new Vector2(0, tile * j));    //top
+            if (PointCollidesWithTeam(new Vector2(0, tile * j) + position, OtherTeam(gameObject.tag)))
                 break;
+            j++;
+            Debug.Log("Top");
         }
         j = 1;
-        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(tile * -1, 0) + position, gameObject.tag))
+        while (position.x - j * tile > -4 && !PointCollidesWithTeam(new Vector2(tile * j * -1, 0) + position, gameObject.tag))
         {
-            moves.Add(new Vector2(tile * -1, 0));    //left
-            if (PointCollidesWithTeam(new Vector2(tile * -1, 0) + position, OtherTeam(gameObject.tag)))
+            moves.Add(new Vector2(tile * j * -1, 0));    //left
+            if (PointCollidesWithTeam(new Vector2(tile * j * -1, 0) + position, OtherTeam(gameObject.tag)))
                 break;
+            j++;
+            Debug.Log("Left");
         }
         j = 1;
-        while (position.x + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile * -1) + position, gameObject.tag))
+        while (position.y - j * tile > -4 && !PointCollidesWithTeam(new Vector2(0, tile * j * -1) + position, gameObject.tag))
         {
-            moves.Add(new Vector2(0, tile * -1));   //bottom
-            if (PointCollidesWithTeam(new Vector2(0, tile * -1) + position, OtherTeam(gameObject.tag)))
+            moves.Add(new Vector2(0, tile * j * -1));   //bottom
+            if (PointCollidesWithTeam(new Vector2(0, tile * j * -1) + position, OtherTeam(gameObject.tag)))
                 break;
+            j++;
+            Debug.Log("Bottom");
         }
         
         for (int i = moves.Count - 1; i >= 0; i--)

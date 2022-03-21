@@ -257,6 +257,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149185572}
   - component: {fileID: 149185571}
+  - component: {fileID: 149185574}
   - component: {fileID: 149185573}
   m_Layer: 0
   m_Name: BlackKnight1
@@ -356,6 +357,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76666665, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &149185574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149185570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c721b989e5e3e64ea903a9cbee59e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &197747482
 GameObject:
   m_ObjectHideFlags: 0
@@ -738,6 +753,7 @@ GameObject:
   m_Component:
   - component: {fileID: 471989228}
   - component: {fileID: 471989227}
+  - component: {fileID: 471989230}
   - component: {fileID: 471989229}
   m_Layer: 0
   m_Name: WhiteKnight2
@@ -837,6 +853,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76666665, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &471989230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471989226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c721b989e5e3e64ea903a9cbee59e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &491259293
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,6 +1001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 518624165}
   - component: {fileID: 518624164}
+  - component: {fileID: 518624167}
   - component: {fileID: 518624166}
   m_Layer: 0
   m_Name: BlackKnight2
@@ -1070,6 +1101,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76666665, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &518624167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518624163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c721b989e5e3e64ea903a9cbee59e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1535,6 +1580,7 @@ GameObject:
   m_Component:
   - component: {fileID: 715713136}
   - component: {fileID: 715713135}
+  - component: {fileID: 715713138}
   - component: {fileID: 715713137}
   m_Layer: 0
   m_Name: WhiteKnight1
@@ -1634,6 +1680,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.76666665, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &715713138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 715713134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c721b989e5e3e64ea903a9cbee59e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &744116323
 GameObject:
   m_ObjectHideFlags: 0

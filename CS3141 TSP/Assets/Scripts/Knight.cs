@@ -16,6 +16,7 @@ public class Knight : Piece
         moves.Add(new Vector2(tile * -1, tile * -2));    //down left
         moves.Add(new Vector2(tile * -2, tile * -1));   //left down
         moves.Add(new Vector2(tile * -2, tile));   //left up
+        moves.Add(new Vector2(tile * -1, tile * 2));   //up left
 
         for (int i = moves.Count - 1; i >= 0; i--)
         {

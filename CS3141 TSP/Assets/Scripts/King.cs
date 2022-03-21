@@ -32,6 +32,7 @@ public class King : Piece
         moves.Add(new Vector2(tile * -1, 0));    //left
         moves.Add(new Vector2(tile * -1, tile * -1));   //bottom left
         moves.Add(new Vector2(0, tile * -1));   //bottom
+        moves.Add(new Vector2(tile, tile * -1));   //bottom right
 
         for (int i = moves.Count - 1; i >= 0; i--)
         {

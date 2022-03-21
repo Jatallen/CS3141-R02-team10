@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 34092617}
   - component: {fileID: 34092616}
+  - component: {fileID: 34092619}
   - component: {fileID: 34092618}
   m_Layer: 0
   m_Name: BlackBishop1
@@ -232,6 +233,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8466667, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &34092619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34092615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d023ee21ce591ba49801a78d32bfb148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &149185570
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399b0e947168952468432fc01cc87c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
   isHighlighted: 0
 --- !u!61 &197747486
 BoxCollider2D:
@@ -1753,6 +1768,7 @@ GameObject:
   m_Component:
   - component: {fileID: 873295443}
   - component: {fileID: 873295442}
+  - component: {fileID: 873295445}
   - component: {fileID: 873295444}
   m_Layer: 0
   m_Name: WhiteQueen
@@ -1852,6 +1868,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.94, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &873295445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873295441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d5fddd8a3eaa245b3f7b5c66a545a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &890662692
 GameObject:
   m_ObjectHideFlags: 0
@@ -2481,6 +2511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1294682334}
   - component: {fileID: 1294682333}
+  - component: {fileID: 1294682336}
   - component: {fileID: 1294682335}
   m_Layer: 0
   m_Name: WhiteBishop1
@@ -2580,6 +2611,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8466667, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &1294682336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1294682332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d023ee21ce591ba49801a78d32bfb148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &1296707372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2590,6 +2635,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296707374}
   - component: {fileID: 1296707373}
+  - component: {fileID: 1296707376}
   - component: {fileID: 1296707375}
   m_Layer: 0
   m_Name: WhiteBishop2
@@ -2689,6 +2735,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8466667, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &1296707376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296707372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d023ee21ce591ba49801a78d32bfb148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &1377447082
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,6 +3131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1738364974}
   - component: {fileID: 1738364973}
+  - component: {fileID: 1738364976}
   - component: {fileID: 1738364975}
   m_Layer: 0
   m_Name: BlackQueen
@@ -3170,6 +3231,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.94, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &1738364976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738364972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63d5fddd8a3eaa245b3f7b5c66a545a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &1823432530
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,6 +3255,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1823432532}
   - component: {fileID: 1823432531}
+  - component: {fileID: 1823432534}
   - component: {fileID: 1823432533}
   m_Layer: 0
   m_Name: BlackBishop2
@@ -3279,6 +3355,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8466667, y: 0.85333335}
   m_EdgeRadius: 0
+--- !u!114 &1823432534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823432530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d023ee21ce591ba49801a78d32bfb148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
+  isHighlighted: 0
 --- !u!1 &1842543991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,7 +3961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 399b0e947168952468432fc01cc87c4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlight: {fileID: 0}
+  highlight: {fileID: 182071816169094918, guid: 8c07ad1de4789014cbbe154bbc95b97e, type: 3}
   isHighlighted: 0
 --- !u!61 &2098177917
 BoxCollider2D:

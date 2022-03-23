@@ -16,12 +16,9 @@ public abstract class Piece : MonoBehaviour
     public GameObject moveHighlight;
     public bool isHighlighted = false;
 
-<<<<<<< Updated upstream
     public GameObject Queen;
 
-=======
     private SpriteRenderer spriteRenderer ;
->>>>>>> Stashed changes
     
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move

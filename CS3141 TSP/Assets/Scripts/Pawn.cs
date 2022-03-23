@@ -9,19 +9,24 @@ public class Pawn : Piece
     {
         List<Vector2> moves = new List<Vector2>();
         float tile = GameController.tile;
-        //Pawn moves
-        if(gameObject.tag == "White")
-            moves.Add(new Vector2(0, tile));    //top
-        else
-            moves.Add(new Vector2(0, tile * -1));   //bottom
+        int isWhite = gameObject.tag == "White" ? 1 : -1;
 
-        if (!hasMoved)
+        //Pawn moves
+        if (PieceAt(new Vector2(0, tile * isWhite) + position) == null)
         {
-            if (gameObject.tag == "White")
-                moves.Add(new Vector2(0, tile * 2));    //top
-            else
-                moves.Add(new Vector2(0, tile * -2));   //bottom
+            moves.Add(new Vector2(0, tile * isWhite));    //one space
+
+            if (!hasMoved)
+            {
+                moves.Add(new Vector2(0, tile * 2 * isWhite));    //two spaces
+            }
         }
+
+        if (PointCollidesWithTeam(new Vector2(tile, tile * isWhite) + position, OtherTeam(gameObject.tag)))
+            moves.Add(new Vector2(tile, tile * isWhite));    //diag right
+        if (PointCollidesWithTeam(new Vector2(tile * -1, tile * isWhite) + position, OtherTeam(gameObject.tag)))
+            moves.Add(new Vector2(tile * -1, tile * isWhite));    //diag left
+
 
         for (int i = moves.Count - 1; i >= 0; i--)
         {

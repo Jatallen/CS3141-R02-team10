@@ -75,18 +75,17 @@ public abstract class Piece : MonoBehaviour
 
                         if (thisCollider.OverlapPoint(move))
                         {
-                            transform.position = move;
-                            GameController.playerSelect = null;
-                            GameController.turn = OtherTeam(GameController.turn);
-                            List<Collider2D> result = new List<Collider2D>();
-                            if (thisCollider.OverlapCollider(new ContactFilter2D(), result) >= 1)   //take pieces - WIP
+                            GameObject pieceAtMove = PieceAt(move);
+                            if (pieceAtMove != null)   //take pieces - WIP
                             {
-                                foreach (Collider2D col in result)
-                                    if (col.gameObject != GameController.board)
-                                        col.GetComponent<Piece>().TakePiece(gameObject);
+                                pieceAtMove.GetComponent<Piece>().TakePiece(gameObject);
                                 Debug.Log("Piece Taken");
                             }
 
+                            transform.position = move;
+                            GameController.playerSelect = null;
+                            GameController.turn = OtherTeam(GameController.turn);
+                            
                             // If pawn reaches back rank, destroy pawn and create a queen in its place
                             if ((GetComponent<Pawn>() != null) && Mathf.Abs(transform.position.y) == 3.5){
                                 Destroy(gameObject);
@@ -100,7 +99,7 @@ public abstract class Piece : MonoBehaviour
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             isHighlighted = false;
-
+                            spriteRenderer.sortingOrder = 0;
                             break;
                         }
                         Debug.Log("Failed Move: " + mousePos + move);

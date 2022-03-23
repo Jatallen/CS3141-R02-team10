@@ -64,6 +64,7 @@ public abstract class Piece : MonoBehaviour
             {
                 if (thisCollider.OverlapPoint(GameController.selectPos))    //if clicked on original spot
                 {
+                    spriteRenderer.sortingOrder = 0;
                     transform.position = GameController.selectPos;
                     GameController.playerSelect = null;
                     //Debug.Log("Put Down: " + position + GameController.selectPos);

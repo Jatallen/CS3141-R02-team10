@@ -18,7 +18,10 @@ public class Pawn : Piece
 
             if (!hasMoved)
             {
-                moves.Add(new Vector2(0, tile * 2 * isWhite));    //two spaces
+                if (!PointCollidesWithTeam(new Vector2(0, tile * 1) + position, OtherTeam(gameObject.tag)))
+                {
+                    moves.Add(new Vector2(0, tile * 2 * isWhite));    //two spaces
+                }
             }
         }
 

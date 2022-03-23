@@ -84,7 +84,7 @@ public abstract class Piece : MonoBehaviour
                         if (thisCollider.OverlapPoint(move))
                         {
                             GameObject pieceAtMove = PieceAt(move);
-                            if (pieceAtMove != null)   //take pieces - WIP
+                            if (pieceAtMove != null)   //take pieces
                             {
                                 pieceAtMove.GetComponent<Piece>().TakePiece(gameObject);
                                 Debug.Log("Piece Taken");
@@ -94,15 +94,36 @@ public abstract class Piece : MonoBehaviour
                             GameController.playerSelect = null;
                             GameController.turn = OtherTeam(GameController.turn);
                             
-                            // If pawn reaches back rank, destroy pawn and create a queen in its place
-                            if ((GetComponent<Pawn>() != null) && Mathf.Abs(transform.position.y) == 3.5){
-                                Destroy(gameObject);
-                                if (gameObject.tag == "White"){
-                                    Instantiate(Queen, transform.position, transform.rotation);
-                                } else {
-                                    Instantiate(Queen, transform.position, transform.rotation);
+                            if ((GetComponent<Pawn>() != null))
+                            {
+                                // If pawn reaches back rank, destroy pawn and create a queen in its place
+                                if (Mathf.Abs(transform.position.y) == 3.5)
+                                {
+                                    Destroy(gameObject);
+                                    if (gameObject.tag == "White")
+                                    {
+                                        Instantiate(Queen, transform.position, transform.rotation);
+                                    }
+                                    else
+                                    {
+                                        Instantiate(Queen, transform.position, transform.rotation);
+                                    }
                                 }
+                                if (Mathf.Abs(position.y - move.y) == 2)
+                                    GetComponent<Pawn>().enPassant = true;
+                                else
+                                    GetComponent<Pawn>().enPassant = false;
+
+                                if (position.x != move.x)
+                                {
+                                    GameObject pass = PieceAt(new Vector2(move.x, position.y));
+                                    if (pass != null && pass.GetComponent<Pawn>() != null && pass.GetComponent<Pawn>().enPassant)
+                                        pass.GetComponent<Piece>().TakePiece(gameObject);
+                                }
+
                             }
+
+                            NoPassant();
 
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
@@ -132,9 +153,7 @@ public abstract class Piece : MonoBehaviour
                 //Debug.Log("Pick Up: " + GameController.selectPos);
             }
         }
-
         //Debug.Log(mousePos);
-
     }
 
     //return whether or not the point collides with a piece of the given team
@@ -175,6 +194,16 @@ public abstract class Piece : MonoBehaviour
 
     void setIsHighlightedtoFalse(){
         isHighlighted = false;
+    }
+
+    public void NoPassant()
+    {
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag("White"))
+            if (piece.GetComponent<Pawn>() != null && piece != gameObject)
+                piece.GetComponent<Pawn>().enPassant = false;
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
+            if (piece.GetComponent<Pawn>() != null && piece != gameObject)
+                piece.GetComponent<Pawn>().enPassant = false;
     }
 
 }

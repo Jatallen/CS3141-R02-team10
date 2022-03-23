@@ -15,6 +15,7 @@ public abstract class Piece : MonoBehaviour
     public GameObject highlight;
     public GameObject moveHighlight;
     public bool isHighlighted = false;
+    public bool pieceSelectedHighlight = false;
 
     public GameObject Queen;
 
@@ -31,6 +32,7 @@ public abstract class Piece : MonoBehaviour
         position = new Vector2(transform.position.x, transform.position.y);
 
         hasMoved = false;
+        isHighlighted = false;
     }
 
     // Update is called once per frame
@@ -40,20 +42,25 @@ public abstract class Piece : MonoBehaviour
 
         if (GameController.playerSelect == gameObject)  //if the piece is selected
         {
-                if(!isHighlighted){
+                if(isHighlighted == false){
+
+                    if(!pieceSelectedHighlight){
                     var instance = Instantiate(highlight, transform.position, Quaternion.identity);
                     Destroy(instance, 1);
+                    }
+
+                    pieceSelectedHighlight = true;
 
                     foreach (Vector2 move in ListMoves()){
 
                     Debug.Log(" moves are " + move);
                     
-                    var moveInstacne = Instantiate(moveHighlight, move, Quaternion.identity);
-                    Destroy(moveInstacne, 1);
-
-                    isHighlighted = true;    
+                    var moveInstance = Instantiate(moveHighlight, move, Quaternion.identity);
+                    Destroy(moveInstance, 1);
+   
                 }
-
+                isHighlighted = true; 
+                Invoke("setIsHighlightedtoFalse", 1.0f);
             }
 
             
@@ -100,6 +107,7 @@ public abstract class Piece : MonoBehaviour
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             isHighlighted = false;
+                            pieceSelectedHighlight = false;
                             spriteRenderer.sortingOrder = 0;
                             break;
                         }
@@ -144,7 +152,7 @@ public abstract class Piece : MonoBehaviour
         /*if (GameController.playerSelect != collision.gameObject &&
             GameController.board != collision.gameObject &&
             GameController.turn != gameObject.tag)*/
-            Destroy(gameObject); //data loss?
+            Destroy(gameObject); 
     } 
     
     public GameObject PieceAt(Vector2 pos)
@@ -164,4 +172,9 @@ public abstract class Piece : MonoBehaviour
             return "Black";
         return "White";
     }
+
+    void setIsHighlightedtoFalse(){
+        isHighlighted = false;
+    }
+
 }

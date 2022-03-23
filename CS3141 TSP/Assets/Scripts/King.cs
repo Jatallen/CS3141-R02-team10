@@ -24,7 +24,7 @@ public class King : Piece
     {
         List<Vector2> moves = new List<Vector2>();
         float tile = GameController.tile;
-        
+
         //King moves
         moves.Add(new Vector2(tile, 0));    //right
         moves.Add(new Vector2(tile, tile)); //top right
@@ -35,8 +35,22 @@ public class King : Piece
         moves.Add(new Vector2(0, tile * -1));   //bottom
         moves.Add(new Vector2(tile, tile * -1));   //bottom right
 
-        if ((PieceAt(new Vector2(position.x - 4, position.y)).GetComponent<Rook>().hasMoved == false) && PieceAt(new Vector2(position.x - 3, position.y)) == null && PieceAt(new Vector2(position.x - 2, position.y)) == null && PieceAt(new Vector2(position.x - 1, position.y)) == null){
-            moves.Add(new Vector2(tile * -2, 0));
+        // Castle moves
+        if (!hasMoved){
+            if ((PieceAt(new Vector2(position.x - 4, position.y)) != null) 
+            && (PieceAt(new Vector2(position.x - 4, position.y)).GetComponent<Rook>().hasMoved == false) 
+            && PieceAt(new Vector2(position.x - 3, position.y)) == null 
+            && PieceAt(new Vector2(position.x - 2, position.y)) == null 
+            && PieceAt(new Vector2(position.x - 1, position.y)) == null){
+                moves.Add(new Vector2(tile * -2, 0));
+            }
+
+            if ((PieceAt(new Vector2(position.x + 3, position.y)) != null) 
+            && (PieceAt(new Vector2(position.x + 3, position.y)).GetComponent<Rook>().hasMoved == false) 
+            && PieceAt(new Vector2(position.x + 2, position.y)) == null 
+            && PieceAt(new Vector2(position.x + 1, position.y)) == null){
+                moves.Add(new Vector2(tile * 2, 0));
+            }
         }
 
         for (int i = moves.Count - 1; i >= 0; i--)

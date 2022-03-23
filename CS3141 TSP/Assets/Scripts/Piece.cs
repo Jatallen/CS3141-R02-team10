@@ -18,6 +18,7 @@ public abstract class Piece : MonoBehaviour
     public bool pieceSelectedHighlight = false;
 
     public GameObject Queen;
+    public GameObject Rook;
 
     private SpriteRenderer spriteRenderer ;
     
@@ -124,6 +125,22 @@ public abstract class Piece : MonoBehaviour
                             }
 
                             NoPassant();
+
+
+                            // If castle move by either King is made, move appropriate Rook
+                            if ((GetComponent<King>() != null)){
+                                Debug.Log("King position: " + position);
+                                if (move.x == -1.5 && position.x == 0.5){
+                                    Destroy(PieceAt(new Vector2((float)-3.5, (float)position.y)));
+                                    Vector2 rookPos = new Vector2(move.x+1,move.y);
+                                    Instantiate(Rook, rookPos, transform.rotation);
+                                }
+                                else if (move.x == 2.5 && position.x == 0.5){
+                                    Destroy(PieceAt(new Vector2((float)3.5, (float)position.y)));
+                                    Vector2 rookPos = new Vector2(move.x-1,move.y);
+                                    Instantiate(Rook, rookPos, transform.rotation);
+                                }
+                            }
 
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;

@@ -53,7 +53,24 @@ public class GameController : MonoBehaviour
             while (movePieces.Count < allMoves.Count)
                 movePieces.Add(piece);
         }
-
+        for (int i = 0; i < allMoves.Count; i++)
+        {
+            if (!movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]))
+            {
+                allMoves.RemoveAt(i);
+                movePieces.RemoveAt(i);
+            }
+        }
+        if (allMoves.Count == 0 && movePieces.Count == 0)
+        {
+            foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
+            {
+                allMoves.AddRange(piece.GetComponent<Piece>().ListMoves());
+                while (movePieces.Count < allMoves.Count)
+                    movePieces.Add(piece);
+            }
+            Debug.Log("No taking moves");
+        }
         int r = Random.Range(0, allMoves.Count);
         Piece movePiece = movePieces[r].GetComponent<Piece>();
 
@@ -70,15 +87,9 @@ public class GameController : MonoBehaviour
             if (Mathf.Abs(movePieces[r].transform.position.y) == 3.5)
             {
                 Destroy(movePieces[r]);
-                if (gameObject.tag == "White")
-                {
-                    Instantiate(pawn.Queen, movePieces[r].transform.position, Quaternion.identity);
-                }
-                else
-                {
-                    Instantiate(pawn.Queen, movePieces[r].transform.position, Quaternion.identity);
-                }
+                Instantiate(pawn.Queen, movePieces[r].transform.position, Quaternion.identity);
             }
+
             if (Mathf.Abs(pawn.position.y - allMoves[r].y) == 2)
                 pawn.enPassant = true;
             else
@@ -115,5 +126,10 @@ public class GameController : MonoBehaviour
 
         movePieces[r].transform.position = allMoves[r];
         turn = "White";
+    }
+
+    public static bool CheckChecked(string team)
+    {
+        return false;
     }
 }

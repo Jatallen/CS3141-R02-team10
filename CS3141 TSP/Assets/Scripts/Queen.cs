@@ -82,7 +82,8 @@ public class Queen : Piece
         {
             moves[i] += position;
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i], gameObject.tag))  //remove move if it's an illegal space
+                PointCollidesWithTeam(moves[i], gameObject.tag) ||
+                GameController.CheckChecked(gameObject.tag))  //remove move if it's an illegal space
                 moves.Remove(moves[i]);
         }
 

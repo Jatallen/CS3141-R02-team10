@@ -84,7 +84,7 @@ public abstract class Piece : MonoBehaviour
                             if (pieceAtMove != null)   //take pieces
                             {
                                 pieceAtMove.GetComponent<Piece>().TakePiece(gameObject);
-                                Debug.Log("Piece Taken");
+                                //Debug.Log("Piece Taken");
                             }
 
                             transform.position = move;
@@ -137,14 +137,14 @@ public abstract class Piece : MonoBehaviour
                                     Instantiate(Rook, rookPos, transform.rotation);
                                 }
                             }
-                            Debug.Log("Successful Move: " + mousePos + move);
+                            //Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             isHighlighted = false;
                             pieceSelectedHighlight = false;
                             spriteRenderer.sortingOrder = 0;
                             break;
                         }
-                        Debug.Log("Failed Move: " + mousePos + move);
+                        //Debug.Log("Failed Move: " + mousePos + move);
                     }
                     if (ListMoves().Count == 0)
                         Debug.Log("No Moves");

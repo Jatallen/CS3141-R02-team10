@@ -20,7 +20,8 @@ public abstract class Piece : MonoBehaviour
     public GameObject Queen;
     public GameObject Rook;
 
-    private SpriteRenderer spriteRenderer ;
+    private SpriteRenderer spriteRenderer;
+    private AudioSource audioSource;
     
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
@@ -30,6 +31,7 @@ public abstract class Piece : MonoBehaviour
     {
         thisCollider = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
         position = new Vector2(transform.position.x, transform.position.y);
 
         hasMoved = false;
@@ -142,6 +144,7 @@ public abstract class Piece : MonoBehaviour
                             isHighlighted = false;
                             pieceSelectedHighlight = false;
                             spriteRenderer.sortingOrder = 0;
+                            audioSource.Play();
                             break;
                         }
                         //Debug.Log("Failed Move: " + mousePos + move);

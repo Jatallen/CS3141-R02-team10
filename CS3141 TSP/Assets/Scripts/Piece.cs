@@ -53,7 +53,7 @@ public abstract class Piece : MonoBehaviour
                 if(isHighlighted == false){
 
                     foreach (Vector2 move in ListMoves()) {
-                        Debug.Log(" moves are " + move);
+                        //Debug.Log(" moves are " + move);
                         var moveInstance = Instantiate(moveHighlight, move, Quaternion.identity);
                         Destroy(moveInstance, 1);
                     }

@@ -53,9 +53,9 @@ public class GameController : MonoBehaviour
             while (movePieces.Count < allMoves.Count)
                 movePieces.Add(piece);
         }
-        for (int i = 0; i < allMoves.Count; i++)
+        for (int i = allMoves.Count - 1; i >= 0; i--)
         {
-            if (!movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]))
+            if (movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]) == null)
             {
                 allMoves.RemoveAt(i);
                 movePieces.RemoveAt(i);

@@ -43,33 +43,30 @@ public abstract class Piece : MonoBehaviour
 
         if (GameController.playerSelect == gameObject)  //if the piece is selected
         {
-                if(isHighlighted == false){
-
-                    if(!pieceSelectedHighlight){
+            if(!pieceSelectedHighlight){
                     var instance = Instantiate(highlight, transform.position, Quaternion.identity);
                     Destroy(instance, 1);
-                    }
 
                     pieceSelectedHighlight = true;
-
-                    foreach (Vector2 move in ListMoves()){
-
-                    Debug.Log(" moves are " + move);
-                    
-                    var moveInstance = Instantiate(moveHighlight, move, Quaternion.identity);
-                    Destroy(moveInstance, 1);
-   
                 }
-                isHighlighted = true; 
-                Invoke("setIsHighlightedtoFalse", 1.0f);
-            }
 
-            
+                if(isHighlighted == false){
+
+                    foreach (Vector2 move in ListMoves()) {
+                        Debug.Log(" moves are " + move);
+                        var moveInstance = Instantiate(moveHighlight, move, Quaternion.identity);
+                        Destroy(moveInstance, 1);
+                    }
+
+                isHighlighted = true; 
+                Invoke("setIsHighlightedtoFalse", 1.0f); //update is called constantly, destroys and creates at same rate so when a piece is grabbed is shows
+            }
 
             transform.position = mousePos;
             
             if (Input.GetMouseButtonDown(0))    //left click
             {
+                pieceSelectedHighlight = false;
                 if (thisCollider.OverlapPoint(GameController.selectPos))    //if clicked on original spot
                 {
                     spriteRenderer.sortingOrder = 0;
@@ -81,7 +78,6 @@ public abstract class Piece : MonoBehaviour
                 {
                     foreach (Vector2 move in ListMoves())   //check if the clicked spot is a possible move
                     {
-
                         if (thisCollider.OverlapPoint(move))
                         {
                             GameObject pieceAtMove = PieceAt(move);
@@ -141,7 +137,6 @@ public abstract class Piece : MonoBehaviour
                                     Instantiate(Rook, rookPos, transform.rotation);
                                 }
                             }
-
                             Debug.Log("Successful Move: " + mousePos + move);
                             hasMoved = true;
                             isHighlighted = false;
@@ -155,6 +150,7 @@ public abstract class Piece : MonoBehaviour
                         Debug.Log("No Moves");
                 }
             }
+            
         }
         else
         {

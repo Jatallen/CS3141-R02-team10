@@ -19,7 +19,7 @@ public class Pawn : Piece
         {
             moves.Add(new Vector2(0, tile * isWhite));    //one space
 
-            if (!hasMoved)
+            if (!hasMoved && PieceAt(new Vector2(0, tile * isWhite * 2) + position) == null)
             {
                 moves.Add(new Vector2(0, tile * 2 * isWhite));    //two spaces
             }

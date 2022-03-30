@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (turn == "Black")
+            AIMove();
     }
 
     public static void GameOver(string lost)
@@ -40,5 +41,20 @@ public class GameController : MonoBehaviour
             color.a = .667f;
             pieceSR.color = color;
         }
+    }
+
+    private void AIMove()
+    {
+        List<Vector2> allMoves = new List<Vector2>();
+        List<GameObject> movePieces = new List<GameObject>();
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
+        {
+            allMoves.AddRange(piece.GetComponent<Piece>().ListMoves());
+            while (movePieces.Count < allMoves.Count)
+                movePieces.Add(piece);
+        }
+        int r = Random.Range(0, allMoves.Count);
+        movePieces[r].transform.position = allMoves[r];
+        turn = "White";
     }
 }

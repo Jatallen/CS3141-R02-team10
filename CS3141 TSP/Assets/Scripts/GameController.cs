@@ -53,7 +53,66 @@ public class GameController : MonoBehaviour
             while (movePieces.Count < allMoves.Count)
                 movePieces.Add(piece);
         }
+
         int r = Random.Range(0, allMoves.Count);
+        Piece movePiece = movePieces[r].GetComponent<Piece>();
+
+        GameObject pieceAtMove = movePiece.PieceAt(allMoves[r]);
+        if (pieceAtMove != null)   //take pieces
+        {
+            pieceAtMove.GetComponent<Piece>().TakePiece(gameObject);
+        }
+
+        Pawn pawn = movePieces[r].GetComponent<Pawn>();
+        if (pawn != null)
+        {
+            // If pawn reaches back rank, destroy pawn and create a queen in its place
+            if (Mathf.Abs(movePieces[r].transform.position.y) == 3.5)
+            {
+                Destroy(movePieces[r]);
+                if (gameObject.tag == "White")
+                {
+                    Instantiate(pawn.Queen, movePieces[r].transform.position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(pawn.Queen, movePieces[r].transform.position, Quaternion.identity);
+                }
+            }
+            if (Mathf.Abs(pawn.position.y - allMoves[r].y) == 2)
+                pawn.enPassant = true;
+            else
+                pawn.enPassant = false;
+
+            if (pawn.position.x != allMoves[r].x)
+            {
+                GameObject pass = movePiece.PieceAt(new Vector2(allMoves[r].x, pawn.position.y));
+                if (pass != null && pass.GetComponent<Pawn>() != null && pass.GetComponent<Pawn>().enPassant)
+                    pass.GetComponent<Piece>().TakePiece(gameObject);
+            }
+        }
+        movePiece.NoPassant();
+
+        // If castle move by either King is made, move appropriate Rook
+        if ((GetComponent<King>() != null))
+        {
+            Debug.Log("King position: " + movePiece.position);
+            if (allMoves[r].x == -1.5 && movePiece.position.x == 0.5)
+            {
+                Destroy(movePiece.PieceAt(new Vector2((float)-3.5, (float)movePiece.position.y)));
+                Vector2 rookPos = new Vector2(allMoves[r].x + 1, allMoves[r].y);
+                Instantiate(movePiece.Rook, rookPos, transform.rotation);
+            }
+            else if (allMoves[r].x == 2.5 && movePiece.position.x == 0.5)
+            {
+                Destroy(movePiece.PieceAt(new Vector2((float)3.5, (float)movePiece.position.y)));
+                Vector2 rookPos = new Vector2(allMoves[r].x - 1, allMoves[r].y);
+                Instantiate(movePiece.Rook, rookPos, transform.rotation);
+            }
+        }
+        //Debug.Log("Successful Move: " + mousePos + move);
+        movePiece.hasMoved = true;
+
         movePieces[r].transform.position = allMoves[r];
         turn = "White";
     }

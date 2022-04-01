@@ -130,6 +130,11 @@ public class GameController : MonoBehaviour
 
     public static bool CheckChecked(string team)
     {
+        foreach (GameObject piece in GameObject.FindGameObjectsWithTag(Piece.OtherTeam(team)))
+            foreach(Vector2 move in piece.GetComponent<Piece>().ListMoves())
+                if(piece.GetComponent<Piece>().PieceAt(move) != null && piece.GetComponent<Piece>().PieceAt(move) != null)
+                    return true;
+
         return false;
     }
 }

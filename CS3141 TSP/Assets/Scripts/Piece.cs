@@ -201,7 +201,7 @@ public abstract class Piece : MonoBehaviour
         return null;
     }
 
-    public string OtherTeam(string team)
+    public static string OtherTeam(string team)
     {
         if (team == "White")
             return "Black";
@@ -222,4 +222,26 @@ public abstract class Piece : MonoBehaviour
                 piece.GetComponent<Pawn>().enPassant = false;
     }
 
+
+    public List<Vector2> TestMoves(List<Vector2> moves)
+    {
+        for (int i = moves.Count - 1; i >= 0; i--)
+        {
+            moves[i] += position;
+            if (!GameController.boardColl.OverlapPoint(moves[i]) ||
+                PointCollidesWithTeam(moves[i], gameObject.tag)) //remove move if it's an illegal space
+                moves.Remove(moves[i]);
+            if (false && tag == GameController.turn)
+            {
+                Vector3 temp = transform.position;
+                transform.position = moves[i];
+                if (GameController.CheckChecked(tag))
+                    moves.Remove(moves[i]);
+                transform.position = temp;
+                Debug.Log("Test");
+            }
+        }
+
+        return moves;
+    }
 }

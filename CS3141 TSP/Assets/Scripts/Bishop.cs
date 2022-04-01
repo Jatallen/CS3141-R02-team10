@@ -42,15 +42,6 @@ public class Bishop : Piece
             j++;
         }
 
-        for (int i = moves.Count - 1; i >= 0; i--)
-        {
-            moves[i] += position;
-            if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i], gameObject.tag) ||
-                GameController.CheckChecked(gameObject.tag))  //remove move if it's an illegal space
-                moves.Remove(moves[i]);
-        }
-
-        return moves;
+        return TestMoves(moves);
     }
 }

@@ -18,15 +18,6 @@ public class Knight : Piece
         moves.Add(new Vector2(tile * -2, tile));   //left up
         moves.Add(new Vector2(tile * -1, tile * 2));   //up left
 
-        for (int i = moves.Count - 1; i >= 0; i--)
-        {
-            moves[i] += position;
-            if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i], gameObject.tag) ||
-                GameController.CheckChecked(gameObject.tag))  //remove move if it's an illegal space
-                moves.Remove(moves[i]);
-        }
-
-        return moves;
+        return TestMoves(moves);
     }
 }

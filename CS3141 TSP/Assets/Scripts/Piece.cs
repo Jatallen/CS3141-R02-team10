@@ -68,9 +68,9 @@ public abstract class Piece : MonoBehaviour
             
             if (Input.GetMouseButtonDown(0))    //left click
             {
-                pieceSelectedHighlight = false;
                 if (thisCollider.OverlapPoint(GameController.selectPos))    //if clicked on original spot
                 {
+                    pieceSelectedHighlight = false;
                     spriteRenderer.sortingOrder = 0;
                     transform.position = GameController.selectPos;
                     GameController.playerSelect = null;

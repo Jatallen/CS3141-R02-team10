@@ -251,6 +251,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &149185570
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +380,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &197747482
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,6 +484,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 6810657054797447990, guid: e42867cefa4031445a5ac4841b354b53, type: 3}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!61 &197747486
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -733,6 +736,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &219430072
 AudioSource:
   m_ObjectHideFlags: 0
@@ -864,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -743.846, y: -412.533}
-  m_SizeDelta: {x: 104.109, y: 22.7386}
+  m_AnchoredPosition: {x: -744.15, y: -413}
+  m_SizeDelta: {x: 60, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284337527
 MonoBehaviour:
@@ -906,7 +910,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -1049,6 +1053,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &471989226
 GameObject:
   m_ObjectHideFlags: 0
@@ -1178,6 +1183,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &471989231
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1402,6 +1408,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &518624163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1530,6 +1537,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1742,6 +1750,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &577167232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1966,6 +1975,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &707314950
 GameObject:
   m_ObjectHideFlags: 0
@@ -2093,7 +2103,8 @@ MonoBehaviour:
   isHighlighted: 0
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
-  Rook: {fileID: 0}
+  Rook: {fileID: 4549133216492750532, guid: 322bf35c4b7c4864a92ff41f8faa0677, type: 3}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &715713134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2223,6 +2234,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &715713139
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2448,6 +2460,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &744116328
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2579,8 +2592,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -743.7922, y: -419.4691}
-  m_SizeDelta: {x: 104.109, y: 22.7386}
+  m_AnchoredPosition: {x: -744.15, y: -419}
+  m_SizeDelta: {x: 60, y: 22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &850201665
 MonoBehaviour:
@@ -2621,7 +2634,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -2765,6 +2778,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &873295446
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2989,6 +3003,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &900954840
 GameObject:
   m_ObjectHideFlags: 0
@@ -3118,6 +3133,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &900954845
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3443,6 +3459,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &957874877
 GameObject:
   m_ObjectHideFlags: 0
@@ -3694,6 +3711,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &1294682332
 GameObject:
   m_ObjectHideFlags: 0
@@ -3823,6 +3841,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &1294682337
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4048,6 +4067,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &1296707377
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4272,6 +4292,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &1507317553
 GameObject:
   m_ObjectHideFlags: 0
@@ -4466,6 +4487,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 6477748696930729062, guid: 8c862295e26a1ff4c8d06670256deac9, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &1738364972
 GameObject:
   m_ObjectHideFlags: 0
@@ -4594,6 +4616,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &1823432530
 GameObject:
   m_ObjectHideFlags: 0
@@ -4722,6 +4745,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!1 &1842543991
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4875,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &1842543996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5076,6 +5101,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &1876751349
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5210,6 +5236,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!61 &1917222717
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5526,6 +5553,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &2002615243
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5751,6 +5779,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 5720227408825604968, guid: 4bff457999412d74f92a6f6e65ac9bc6, type: 3}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &2094766590
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5949,6 +5978,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 2084237117806665738, guid: da017a843806d0f409c6213115f3a942, type: 3}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!61 &2098177917
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6104,6 +6134,7 @@ MonoBehaviour:
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
   Rook: {fileID: 0}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
 --- !u!82 &2106950978
 AudioSource:
   m_ObjectHideFlags: 0
@@ -6327,4 +6358,62 @@ MonoBehaviour:
   isHighlighted: 0
   pieceSelectedHighlight: 0
   Queen: {fileID: 0}
-  Rook: {fileID: 0}
+  Rook: {fileID: 4549133216492750532, guid: 322bf35c4b7c4864a92ff41f8faa0677, type: 3}
+  PieceTaken: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+--- !u!1001 &2273183874591196031
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3908880108888190042, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_Name
+      value: BlackPawn7 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_RootOrder
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938087578397176723, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 814526b2e9bfc904693f6354ea09df01, type: 3}

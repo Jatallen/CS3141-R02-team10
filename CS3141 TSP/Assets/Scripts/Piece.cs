@@ -26,6 +26,10 @@ public abstract class Piece : MonoBehaviour
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
 
+    public GameObject PieceTaken;
+    private static float changeTakeWhiteX = 4.4f;
+    private static float changeTakeBlackX = 4.4f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -187,8 +191,21 @@ public abstract class Piece : MonoBehaviour
         /*if (GameController.playerSelect != collision.gameObject &&
             GameController.board != collision.gameObject &&
             GameController.turn != gameObject.tag)*/
+            if (GameController.turn.Equals("White")){
+                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeBlackX,-3.5f,0), Quaternion.identity);
+                SpriteRenderer capturedSr = captured.GetComponent<SpriteRenderer>();
+                capturedSr.sprite = GetComponent<SpriteRenderer>().sprite;
+                changeTakeBlackX+=0.4f;
+            }
+            else if (GameController.turn.Equals("Black")){
+                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeWhiteX,3.5f,0), Quaternion.identity);
+                SpriteRenderer capturedSr = captured.GetComponent<SpriteRenderer>();
+                capturedSr.sprite = GetComponent<SpriteRenderer>().sprite;
+                changeTakeWhiteX+=0.4f;
+            }
+
             Destroy(gameObject); 
-    } 
+    }
     
     public GameObject PieceAt(Vector2 pos)
     {

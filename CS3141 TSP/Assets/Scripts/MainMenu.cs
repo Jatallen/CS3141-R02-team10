@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
+    
     //Go from main menu to log in page
     public void LogInButton(){
         SceneManager.LoadScene("Log In");
@@ -26,5 +28,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("ChessBoard");
     }
+
 
 }

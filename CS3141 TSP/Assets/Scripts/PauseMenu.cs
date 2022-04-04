@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
 
     }
 
-    void resume(){
+    public void resume(){
         Canvas.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;

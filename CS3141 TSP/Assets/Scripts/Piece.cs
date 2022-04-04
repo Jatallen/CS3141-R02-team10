@@ -29,6 +29,8 @@ public abstract class Piece : MonoBehaviour
     public GameObject PieceTaken;
     private static float changeTakeWhiteX = 4.4f;
     private static float changeTakeBlackX = 4.4f;
+    private static float changeTakeWhiteY = 3.5f;
+    private static float changeTakeBlackY = -3.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -192,16 +194,24 @@ public abstract class Piece : MonoBehaviour
             GameController.board != collision.gameObject &&
             GameController.turn != gameObject.tag)*/
             if (GameController.turn.Equals("White")){
-                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeBlackX,-3.5f,0), Quaternion.identity);
+                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeBlackX,changeTakeBlackY,0), Quaternion.identity);
                 SpriteRenderer capturedSr = captured.GetComponent<SpriteRenderer>();
                 capturedSr.sprite = GetComponent<SpriteRenderer>().sprite;
                 changeTakeBlackX+=0.4f;
+                if (changeTakeBlackX > 6.4f){
+                    changeTakeBlackY+=0.5f;
+                    changeTakeBlackX-=2.0f;
+                }
             }
             else if (GameController.turn.Equals("Black")){
-                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeWhiteX,3.5f,0), Quaternion.identity);
+                GameObject captured = Instantiate(PieceTaken, new Vector3(changeTakeWhiteX,changeTakeWhiteY,0), Quaternion.identity);
                 SpriteRenderer capturedSr = captured.GetComponent<SpriteRenderer>();
                 capturedSr.sprite = GetComponent<SpriteRenderer>().sprite;
                 changeTakeWhiteX+=0.4f;
+                if (changeTakeWhiteX > 6.4f){
+                    changeTakeWhiteY-=0.5f;
+                    changeTakeWhiteX-=2.0f;
+                }
             }
 
             Destroy(gameObject); 

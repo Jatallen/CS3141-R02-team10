@@ -256,16 +256,20 @@ public abstract class Piece : MonoBehaviour
         {
             moves[i] += position;
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
-                PointCollidesWithTeam(moves[i], gameObject.tag)) //remove move if it's an illegal space
+                PointCollidesWithTeam(moves[i], tag)) //remove move if it's an illegal space
                 moves.Remove(moves[i]);
-            if (false && tag == GameController.turn)
+            else if (true && tag == GameController.turn)
             {
                 Vector3 temp = transform.position;
+                Vector2 moveTemp = moves[i];
+                if (PointCollidesWithTeam(moves[i], OtherTeam(tag)))
+                    PieceAt(moves[i]).tag = tag;
                 transform.position = moves[i];
                 if (GameController.CheckChecked(tag))
                     moves.Remove(moves[i]);
                 transform.position = temp;
-                Debug.Log("Test");
+                if (PointCollidesWithTeam(moveTemp, tag))
+                    PieceAt(moveTemp).tag = OtherTeam(tag);
             }
         }
 

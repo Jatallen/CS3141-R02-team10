@@ -15,6 +15,9 @@ public class GameController : MonoBehaviour
     public static GameObject playerSelect;  //piece the player is holding
     public static Vector2 selectPos;    //original position of selected piece
 
+    public float waitTime;
+    private float waited;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,13 +26,21 @@ public class GameController : MonoBehaviour
         turn = "White";
 
         boardColl = GetComponent<Collider2D>();
+
+        waited = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (turn == "Black")
+            waited += Time.deltaTime;
+        if (waited >= waitTime)
+        {
             AIMove();
+            waited = 0;
+        }
     }
 
     public static void GameOver(string lost)
@@ -132,7 +143,7 @@ public class GameController : MonoBehaviour
     {
         foreach (GameObject piece in GameObject.FindGameObjectsWithTag(Piece.OtherTeam(team)))
             foreach(Vector2 move in piece.GetComponent<Piece>().ListMoves())
-                if(piece.GetComponent<Piece>().PieceAt(move) != null && piece.GetComponent<Piece>().PieceAt(move) != null)
+                if(piece.GetComponent<Piece>().PieceAt(move) != null && piece.GetComponent<Piece>().PieceAt(move).GetComponent<King>() != null)
                     return true;
 
         return false;

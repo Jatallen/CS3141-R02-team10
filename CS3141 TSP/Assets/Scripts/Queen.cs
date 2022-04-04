@@ -19,7 +19,7 @@ public class Queen : Piece
             //Debug.Log("Right");
         }
         j = 1;
-        while (position.y + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile) + position, gameObject.tag))
+        while (position.y + j * tile < 4 && !PointCollidesWithTeam(new Vector2(0, tile * j) + position, gameObject.tag))
         {
             moves.Add(new Vector2(0, tile * j));    //top
             if (PointCollidesWithTeam(new Vector2(0, tile * j) + position, OtherTeam(gameObject.tag)))

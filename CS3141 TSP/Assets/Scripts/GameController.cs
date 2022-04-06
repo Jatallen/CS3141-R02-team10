@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
     public float waitTime;
     private float waited;
 
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class GameController : MonoBehaviour
         turn = "White";
 
         boardColl = GetComponent<Collider2D>();
+        audioSource = GetComponent<AudioSource>();
 
         waited = 0;
     }
@@ -134,6 +137,7 @@ public class GameController : MonoBehaviour
         }
         //Debug.Log("Successful Move: " + mousePos + move);
         movePiece.hasMoved = true;
+        audioSource.Play();
 
         movePieces[r].transform.position = allMoves[r];
         turn = "White";

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Registration.unity
     guid: 7cac67343da0c5245a8f1f5ff43c4e55
+  - enabled: 1
+    path: Assets/Scenes/PlayScreen.unity
+    guid: 53eee227b68aeaf43ababf29b6c4d7e8
   m_configObjects: {}

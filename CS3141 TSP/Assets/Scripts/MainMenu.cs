@@ -15,7 +15,7 @@ public class MainMenu : MonoBehaviour
     //Go from login page to chess board
     public void LogInButton2()
     {
-        SceneManager.LoadScene("ChessBoard");
+        SceneManager.LoadScene("PlayScreen");
     }
 
     //Go from main menu to the sign up page
@@ -25,6 +25,11 @@ public class MainMenu : MonoBehaviour
 
     //Go from the sign up page to the chess board
     public void SignUpButton2()
+    {
+        SceneManager.LoadScene("PlayScreen");
+    }
+
+    public void PlayButton()
     {
         SceneManager.LoadScene("ChessBoard");
     }

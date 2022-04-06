@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
 
     private AudioSource audioSource;
 
+    private bool checkWhite = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,17 +40,34 @@ public class GameController : MonoBehaviour
     {
 
         if (turn == "Black")
+        {
             waited += Time.deltaTime;
-        if (waited >= waitTime)
+            checkWhite = true;
+        }
+        else if (turn == "White" && checkWhite)
+        {
+            bool hasMoves = false;
+            foreach (GameObject piece in GameObject.FindGameObjectsWithTag("White"))
+                if (piece.GetComponent<Piece>().ListMoves().Count > 0)
+                    hasMoves = true;
+            if (!hasMoves)
+            {
+                GameOver("White");
+                return;
+            }
+        }
+        if (waited >= waitTime && turn == "Black")
         {
             AIMove();
             waited = 0;
         }
+
     }
 
     public static void GameOver(string lost)
     {
         turn = "Grey";
+        Time.timeScale = 0;
         foreach (GameObject piece in GameObject.FindGameObjectsWithTag(lost))
         {
             SpriteRenderer pieceSR = piece.GetComponent<SpriteRenderer>();
@@ -70,7 +89,16 @@ public class GameController : MonoBehaviour
         }
 
         if (allMoves.Count == 0)
+        {
+            foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
+            {
+                foreach (Vector2 move in piece.GetComponent<Piece>().ListMoves())
+                    Debug.Log(move);
+            }
+
             GameOver("Black");
+            return;
+        }
 
         List<Vector2> allMovesClone = new List<Vector2>(allMoves);
         List<GameObject> movePiecesClone = new List<GameObject>(movePieces);

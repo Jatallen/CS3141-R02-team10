@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[SelectionBase]
 public abstract class Piece : MonoBehaviour
 {
     [System.NonSerialized]
@@ -139,7 +140,7 @@ public abstract class Piece : MonoBehaviour
 
                             // If castle move by either King is made, move appropriate Rook
                             if ((GetComponent<King>() != null)){
-                                Debug.Log("King position: " + position);
+                                //Debug.Log("King position: " + position);
                                 if (move.x == -1.5 && position.x == 0.5){
                                     Destroy(PieceAt(new Vector2((float)-3.5, (float)position.y)));
                                     Vector2 rookPos = new Vector2(move.x+1,move.y);
@@ -264,7 +265,7 @@ public abstract class Piece : MonoBehaviour
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
                 PointCollidesWithTeam(moves[i], tag)) //remove move if it's an illegal space
                 moves.Remove(moves[i]);
-            else if (true && tag == GameController.turn)
+            else if (tag == GameController.turn)
             {
                 Vector3 temp = transform.position;
                 Vector2 moveTemp = moves[i];

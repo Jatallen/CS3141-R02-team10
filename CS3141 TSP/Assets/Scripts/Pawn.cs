@@ -8,6 +8,11 @@ public class Pawn : Piece
     [System.NonSerialized]
     public bool enPassant;
 
+    public override void SetPriority()
+    {
+        priority = 1;
+    }
+
     public override List<Vector2> ListMoves()    //returns an array of the locations the piece can move
     {
         List<Vector2> moves = new List<Vector2>();

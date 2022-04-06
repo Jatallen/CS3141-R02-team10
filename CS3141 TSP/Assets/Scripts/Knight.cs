@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Knight : Piece
 {
+    public override void SetPriority()
+    {
+        priority = 3;
+    }
+
     public override List<Vector2> ListMoves()    //returns an array of the relative locations the piece can move
     {
         List<Vector2> moves = new List<Vector2>();

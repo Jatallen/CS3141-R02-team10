@@ -48,11 +48,12 @@ public class GameController : MonoBehaviour
 
     public static void GameOver(string lost)
     {
+        turn = "Grey";
         foreach (GameObject piece in GameObject.FindGameObjectsWithTag(lost))
         {
             SpriteRenderer pieceSR = piece.GetComponent<SpriteRenderer>();
             Color color = Color.gray;
-            color.a = .667f;
+            //color.a = .667f;
             pieceSR.color = color;
         }
     }
@@ -67,9 +68,16 @@ public class GameController : MonoBehaviour
             while (movePieces.Count < allMoves.Count)
                 movePieces.Add(piece);
         }
+
+        if (allMoves.Count == 0)
+            GameOver("Black");
+
+        List<Vector2> allMovesClone = new List<Vector2>(allMoves);
+        List<GameObject> movePiecesClone = new List<GameObject>(movePieces);
         for (int i = allMoves.Count - 1; i >= 0; i--)
         {
-            if (movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]) == null)
+            GameObject takingPiece = movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]);
+            if (takingPiece == null || takingPiece.GetComponent<Piece>().priority < movePieces[i].GetComponent<Piece>().priority)
             {
                 allMoves.RemoveAt(i);
                 movePieces.RemoveAt(i);
@@ -77,14 +85,27 @@ public class GameController : MonoBehaviour
         }
         if (allMoves.Count == 0 && movePieces.Count == 0)
         {
-            foreach (GameObject piece in GameObject.FindGameObjectsWithTag("Black"))
-            {
-                allMoves.AddRange(piece.GetComponent<Piece>().ListMoves());
-                while (movePieces.Count < allMoves.Count)
-                    movePieces.Add(piece);
-            }
-            Debug.Log("No taking moves");
+            allMoves = new List<Vector2>(allMovesClone);
+            movePieces = new List<GameObject>(movePiecesClone);
+            //Debug.Log("No taking moves");
         }
+        for (int i = allMoves.Count - 1; i >= 0; i--)
+        {
+            GameObject takingPiece = movePieces[i].GetComponent<Piece>().PieceAt(allMoves[i]);
+            if (takingPiece != null && takingPiece.GetComponent<Piece>().priority < movePieces[i].GetComponent<Piece>().priority - 3)
+            {
+                allMoves.RemoveAt(i);
+                movePieces.RemoveAt(i);
+            }
+        }
+        if (allMoves.Count == 0 && movePieces.Count == 0)
+        {
+            allMoves = allMovesClone;
+            movePieces = movePiecesClone;
+            //Debug.Log("No taking moves");
+        }
+
+
         int r = Random.Range(0, allMoves.Count);
         Piece movePiece = movePieces[r].GetComponent<Piece>();
 

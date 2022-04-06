@@ -26,6 +26,10 @@ public abstract class Piece : MonoBehaviour
 
     public abstract List<Vector2> ListMoves();  //returns an array of the locations the piece can move
 
+    [System.NonSerialized]
+    public int priority;
+    public abstract void SetPriority();
+
     public GameObject PieceTaken;
     private static float changeTakeWhiteX = 4.4f;
     private static float changeTakeBlackX = 4.4f;
@@ -42,6 +46,8 @@ public abstract class Piece : MonoBehaviour
 
         hasMoved = false;
         isHighlighted = false;
+
+        SetPriority();
     }
 
     // Update is called once per frame

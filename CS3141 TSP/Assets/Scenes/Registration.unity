@@ -1326,6 +1326,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0d2c70409122c44ca9c5faaf5b4e8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  username: {fileID: 139472024}
+  password: {fileID: 1467726244}
 --- !u!4 &1237440817
 Transform:
   m_ObjectHideFlags: 0

@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool gameIsPaused = false;
+    public bool gameIsPaused = false;
 
-    public GameObject Canvas;
+    public GameObject thisPauseMenu;
+    public GameObject optionsMenu;
+
+    bool optionsOn;
+
+    public void prepare(){
+       optionsOn = false; 
+    }
 
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Escape)){
+       if (Input.GetKeyDown(KeyCode.Escape) && optionsOn == false){
 
            if (gameIsPaused){
                resume();
@@ -26,14 +33,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void resume(){
-        Canvas.SetActive(false);
-        Time.timeScale = 1f;
+        thisPauseMenu.SetActive(false);
         gameIsPaused = false;
     }
 
     void pause(){
-        Canvas.SetActive(true);
-        //Time.timeScale = 0f; its chess and tyler will complain so 
+        thisPauseMenu.SetActive(true);
         gameIsPaused = true;
     }
 
@@ -41,4 +46,12 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("quiting");
         Application.Quit();
     }
+
+    public void optionsPress(){
+        thisPauseMenu.SetActive(false);
+        optionsMenu.SetActive(true);
+        optionsOn = true;
+    }
+
+
 }

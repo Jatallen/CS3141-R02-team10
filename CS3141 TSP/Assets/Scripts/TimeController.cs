@@ -53,5 +53,10 @@ public class TimeController : MonoBehaviour
             
             BlackText.text = str;
         }
+        if (timeLeftWhite <= 0)
+            GameController.GameOver("White");
+        if (timeLeftBlack <= 0)
+            GameController.GameOver("Black");
     }
+    
 }

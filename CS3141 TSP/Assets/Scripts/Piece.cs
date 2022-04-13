@@ -274,7 +274,11 @@ public abstract class Piece : MonoBehaviour
             if (!GameController.boardColl.OverlapPoint(moves[i]) ||
                 PointCollidesWithTeam(moves[i], tag)) //remove move if it's an illegal space
                 moves.Remove(moves[i]);
-            else if (tag == GameController.turn)
+        }
+
+        for (int i = moves.Count - 1; i >= 0; i--)
+        { 
+            if (tag == GameController.turn)
             {
                 Vector3 temp = transform.position;
                 Vector2 moveTemp = moves[i];

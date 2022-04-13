@@ -3,10 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
-    
+
+    private string input;
+    void Security()
+    {
+        string path = Application.dataPath + "/Log-in.txt";
+        Debug.Log(path);
+        if (!File.Exists(path))
+        {
+            File.WriteAllText(path, "Log-in \n\n");
+        }
+        string test = "test\n";
+        File.AppendAllText(path, test);
+
+    }
+
+    void Start()
+    {
+        Security();
+    }
+
     //Go from main menu to log in page
     public void LogInButton(){
         SceneManager.LoadScene("Log In");
@@ -34,5 +54,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("ChessBoard");
     }
 
+    public void ReadStringInput1(string s)
 
 }

@@ -54,6 +54,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("ChessBoard");
     }
 
-    public void ReadStringInput1(string s)
+   // public void ReadStringInput1(string s);
 
 }

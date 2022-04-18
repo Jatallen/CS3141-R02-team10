@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using System.IO;
 using System;
+using System.Text;
+using System.Security.Cryptography;
 
 public class MainMenu : MonoBehaviour
 {
@@ -30,7 +32,7 @@ public class MainMenu : MonoBehaviour
         string[] vals = File.ReadAllLines(path);
         int exists = Array.IndexOf(vals, username.text);
 
-        if( vals[exists + 1].Equals(password.text) )
+        if( vals[exists + 1].Equals(Make256(password.text)) )
         {
             SceneManager.LoadScene("PlayScreen");
         }
@@ -50,7 +52,7 @@ public class MainMenu : MonoBehaviour
         {
             File.WriteAllText(path, "Log-in \n\n");
         }
-        string userInfo = username.text + "\n" + password.text + "\n";
+        string userInfo = username.text + "\n" + Make256(password.text) + "\n";
         string[] vals = File.ReadAllLines(path);
         int exists = Array.IndexOf(vals, username.text);
 
@@ -61,9 +63,28 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    //Loads the actual game upon finishing loging in / signing up.
     public void PlayButton()
     {
         SceneManager.LoadScene("ChessBoard");
+    }
+
+
+    //Method for Encrypting user passwords.
+    public string Make256(string text)
+    {
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(text));
+
+            StringBuilder build = new StringBuilder();
+            for(int i = 0; i < bytes.Length; i++)
+            {
+                build.Append(bytes[i].ToString("x2"));
+            }
+
+            return build.ToString();
+        }
     }
 
 }

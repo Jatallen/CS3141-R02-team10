@@ -69,6 +69,10 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("ChessBoard");
     }
 
+    public void ReturnToMain(){
+        SceneManager.LoadScene("Main Menu");
+    }
+
 
     //Method for Encrypting user passwords.
     public string Make256(string text)
